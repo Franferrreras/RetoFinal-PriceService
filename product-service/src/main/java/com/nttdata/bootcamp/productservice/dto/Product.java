@@ -1,7 +1,17 @@
 package com.nttdata.bootcamp.productservice.dto;
 
-public class ProductDTO {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "PRODUCT")
+public class Product {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	private String productName;
@@ -10,7 +20,7 @@ public class ProductDTO {
 
 	private String serverPort;
 
-	public ProductDTO() {
+	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -45,6 +55,12 @@ public class ProductDTO {
 
 	public void setServerPort(String serverPort) {
 		this.serverPort = serverPort;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", productName=" + productName + ", channel=" + channel + ", serverPort="
+				+ serverPort + "]";
 	}
 
 }
